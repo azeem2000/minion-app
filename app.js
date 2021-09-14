@@ -5,7 +5,8 @@ var serverURL = "https://api.funtranslations.com/translate/minion.json"
 
 
 function urlTranslate(inputText){
-    return serverURL+"?"+"text="+ inputText
+    var finalurl = serverURL + "?"+"text="+inputText
+    return finalurl
 }
 
 function errorHandler(error){
@@ -16,7 +17,7 @@ function errorHandler(error){
 function clickHandler() {
     var inputText = textInput.value
     var finalUrl = urlTranslate(inputText)
-    fetch(urlTranslate(finalUrl))
+    fetch(finalUrl)
     .then(response => response.json())
     .then(json => {
         outputDiv.innerText = json.contents.translated
@@ -26,3 +27,37 @@ function clickHandler() {
 }
 
 btnTranslate.addEventListener("click",clickHandler)
+// var translateButton = document.querySelector("#translate-button");
+
+// translateButton.addEventListener("click", buttonClickHandler)
+
+// // read input
+// var translateInput = document.querySelector("#translate-input");
+
+// // show output
+// var translateOutput = document.querySelector("#translate-output");
+
+// // var url = "https://lessonfourapi.tanaypratap.repl.co/translate/yoda.json"
+
+// var url = "https://api.funtranslations.com/translate/minion.json"
+
+// // REPL URL: https://repl.it/@tanaypratap/lessonfourapi
+
+// function buttonClickHandler(event) {
+//     console.log("button clicked");
+//     var input = translateInput.value;
+//     var finalURL = constructURL(input);
+//     console.log(finalURL);
+//     fetch(finalURL)
+//         .then(response => response.json())
+//         .then(json => {
+//             translateOutput.innerText = json.contents.translated;
+//         })
+//         .catch(() => alert("some error occured"))
+    
+// }
+
+// function constructURL(inputText) {
+//     var encodedURI = encodeURI(inputText);
+//     return `${url}?text=${encodedURI}`;
+// }
