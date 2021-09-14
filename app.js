@@ -5,7 +5,7 @@ var serverURL = "https://api.funtranslations.com/translate/minion.json"
 
 
 function urlTranslate(text){
-    return serverURL+"?text="+text
+    return serverURL+"?"+"text="+text
 }
 
 function errorHandler(error){
