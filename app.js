@@ -4,8 +4,8 @@ var outputDiv = document.querySelector("#output")
 var serverURL = "https://api.funtranslations.com/translate/minion.json"
 
 
-function urlTranslate(text){
-    return serverURL+"?"+"text="+ text
+function urlTranslate(inputText){
+    return serverURL+"?"+"text="+ inputText
 }
 
 function errorHandler(error){
