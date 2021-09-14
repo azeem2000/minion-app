@@ -5,7 +5,7 @@ var serverURL = "https://api.funtranslations.com/translate/minion.json"
 
 
 function urlTranslate(text){
-    return serverURL+"?"+"text="+text
+    return serverURL+"?"+"text="+ text
 }
 
 function errorHandler(error){
@@ -15,11 +15,11 @@ function errorHandler(error){
 
 function clickHandler() {
     var inputText = textInput.value
-    fetch(urlTranslate(inputText))
+    var finalUrl = urlTranslate(inputText)
+    fetch(urlTranslate(finalUrl))
     .then(response => response.json())
     .then(json => {
-        var translatedText = json.contents.translated
-        outputDiv.innerText = translatedText
+        outputDiv.innerText = json.contents.translated
     })
     .catch(errorHandler)//This is a callback function
     
